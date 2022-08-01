@@ -1,81 +1,83 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { Context } from "../pages/AppContext";
+import { useEffect, useState, useContext } from "react";
+import Card from "./Card";
 import Image from "next/image";
-import { Container, Box, Button } from "@chakra-ui/react";
-
-    const refreshPage = () => {
-        window.location.reload(false)
-    }
-
-    const loaderProp =({ src }) => {
-        return src;
-    }
+import { Container, Heading, Text, Stack, Box, SimpleGrid, Center, Button } from "@chakra-ui/react";
 
 
-export default function TarotCards() {
-    const [data, setData] = useState([])
-    const [tarots, setTarots] = useState([])
+
+export default function TarotCards(props) {
+    const { tarots, cardDraw, showDeck } = useContext(Context)
+    const [spread, setSpread] = useState(tarots)
 
     useEffect(() => {
-        axios
-        .get("https://api.projectgamesapi.xyz/v1/tarot")
-        .then((response) => {
-            // console.log(response.data.data.tarot)
-            // console.log(response)
-            // console.log(response.data)
-            setData(response.data.data)
-            setTarots(response.data.data.tarot)
-        })
-    }, []);
+        setSpread(tarots);
+    }, [tarots]);
 
-
-    function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1))
-            ;[array[i], array[j]] = [array[j], array[i]]
-        }
-    }
-
-    const shuffledTarots = shuffle(tarots)
-        console.log(tarots)
-
-
-
-
-
-    // const tarotArray = Object.entries(tarots);
-    // tarotArray.forEach(([key, value]) => {
-    //     console.log(value);
-    // })
-    // console.log(data)
 
     return(
+    <>
+        <Box
+        bg='white'
+        height='100vh'
+        >
 
-        <div>
-            {tarots.slice(0, 3).map(tarot => {
+        <Container
+        paddingTop='80px'
+        display='flex'
+        flex='3'
+        flexDirection='column'
+        justifyContent='center'
+        alignItems='center'
+        >
+
+        <Stack spacing='100vw'direction='column'>
+
+        <SimpleGrid
+            columns={[1, null, 3]}
+            spacingX='40px'
+            w='85vw'
+            // spacingY='100px'
+            // spacing='10pt'
+            // minChildWidth='180px'
+        >
+                <h2>
+                    The Past: {tarots.id} {tarots.id}
+                </h2>
+                <h2>
+                    The Present: {tarots.id} {tarots.id}
+                </h2>
+                <h2>
+                    The Future: {tarots.id} {tarots.id}
+                </h2>
+
+            {tarots.slice(0, 3).map((tarot, i) => {
                 return (
-                    <Container key={tarot.id}>
-                        <Image
+                    <>
+                        <Card
+                            key={tarot.id}
                             src={tarot.image}
-                            alt="tarot card"
-                            width={125}
-                            height={200}
-                            loader={loaderProp}
-                            unoptimized
+                            name={tarot.name}
+                            arcana={tarot.suit}
+                            description={tarot.description}
+                            value={tarot.id}
                         />
-                            <p>{tarot.id}</p>
-                            <h2>{tarot.name}</h2>
-                            <h3>arcana: {tarot.suit}</h3>
-                            <h3>description: {tarot.description}</h3>
-                    </Container>
+                    </>
                 )}
             )}
+            </SimpleGrid>
+            </Stack>
+
+
+            </Container>
             {/* <Button
-            onClick={}
-            >
-                shuffle
+                onClick={() => cardDraw(true)
+            }>
+                New Reading
             </Button> */}
-        </div>
+        </Box>
+    </>
     )
 }
+
