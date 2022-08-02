@@ -1,13 +1,17 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState, createContext, useContext, useRouter } from "react";
+import { Flipper, Flipped } from "react-flip-toolkit";
 
 
 const Context = createContext({});
 
 const Provider = ({ children }) => {
-    const [tarots, setTarots] = useState([])
-    const [showDeck, setShowDeck] = useState(false)
+    const [tarots, setTarots] = useState([]);
+    const [showDeck, setShowDeck] = useState(false);
+    const [fullScreen, setFullScreen] = useState(false);
+    const toggleFullScreen = () => setFullScreen(prevState => !prevState);
+
 
     const refreshPage = () => {
         window.location.reload(false)

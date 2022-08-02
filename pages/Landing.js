@@ -41,9 +41,24 @@ export default function Landing() {
 
     return (
         <Box
-        bg="black"
-        width='100vw'
-        height='100vh'
+        sx={{
+            backgroundImage: 'url(/LandingPage.png)',
+            backgroundSize: "100% 100%",
+            backgroundRepeat: "no-repeat",
+            width: "100vw",
+            height: "110vh",
+            // backgroundPosition: 'center',
+            // backgroundAttachment: 'fixed',
+            // maxWidth: '100%',
+            // width: '100vh',
+            // minHeight: '100vw',
+            // height: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            flex: 1,
+            position: "relative",
+            overflow: 'scroll',
+            }}
         >
 
         {/* <motion.div
@@ -61,7 +76,7 @@ export default function Landing() {
             flexDirection='column'
             justifyContent='center'
             alignItems='center'
-            paddingTop='25%'
+            // paddingTop='25%'
         >
             <Center />
         <Heading textColor='white'>
@@ -70,6 +85,8 @@ export default function Landing() {
 
         <Input
             type="text"
+            bg='white'
+            textColor="black"
             placeholder="What do you seek to know?"
             value={data.question}
             onChange={(event) =>
@@ -89,13 +106,16 @@ export default function Landing() {
         </Button> */}
 
         <Link
+            marginTop='10px'
             href={{
             pathname: "/Spread",
-            query: data,
-        }}
+            query: data}}
         >
-        <a style={{ color: "blue", textDecoration: "underline" }}>
-            Go to Spread
+        <a style={{
+            color: "black",
+            textDecoration: "none"
+        }}>
+            Deal your Cards
         </a>
         </Link>
 

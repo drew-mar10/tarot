@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useEffect, useState } from "react";
-import { Button, Box, Text, SimpleGrid, Container, Heading } from "@chakra-ui/react";
+import { Button, Box, Text, SimpleGrid, Container, Heading, Skeleton } from "@chakra-ui/react";
 import TarotCards from "../components/TarotCards";
 import { Router, useRouter } from "next/router";
 import { Context } from "./AppContext";
@@ -12,6 +12,8 @@ export default function Spread() {
     const router = useRouter();
     const query = router.query;
     const question = query.question;
+    const [isLoaded, setIsLoaded] = useState(false)
+
 
     const blackBox = {
         height: '100vh',
@@ -31,12 +33,11 @@ export default function Spread() {
         },
     };
 
-
     return (
         <>
         {/* <Box
             sx={{
-                backgroundImage: 'url(/clouds.jpg)',
+                backgroundImage: 'url(/SpreadBG.png)',
                 backgroundSize: "100% 100%",
                 backgroundRepeat: "no-repeat",
                 width: "100vw",
@@ -55,6 +56,13 @@ export default function Spread() {
                 }}
         > */}
 
+        {/* <Skeleton
+            startColor='pink.500'
+            endColor='orange.500'
+            width='100vw'
+            height='100vh'
+        /> */}
+
         <Box
         bg="black"
         width='100vw'
@@ -67,13 +75,11 @@ export default function Spread() {
             animate="animate"
             enter="enter"
             variants={blackBox}
-        >
-        </motion.div>
-        {/* </Box> */}
+        />
 
-        <Box
-        bg='white'
-        marginTop='20px'
+        {/* <Box
+        // bg='black'
+        // marginTop='20px'
         display='flex'
         flex='1'
         flexDirection='column'
@@ -82,20 +88,22 @@ export default function Spread() {
         >
             <Text
             fontSize='lg'
+            textColor='white'
             >
             question: {question}
             </Text>
-        </Box>
+        </Box> */}
 
         <TarotCards />
 
 
-        <Button
+        {/* <Button
             type="submit"
-            onClick={() => router.push("Landing")}>
+            onClick={() => router.push("/")}>
             New Reading
-        </Button>
+        </Button> */}
         </Box>
+        {/* </Box> */}
     </>
     )
 }
