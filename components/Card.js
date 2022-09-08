@@ -1,84 +1,57 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { Context } from "../pages/AppContext";
-import { Text, Heading, Box, Center, Image } from "@chakra-ui/react";
+import { Text, Heading, Box, Center, Image, Container } from "@chakra-ui/react";
 import { Flipper, Flipped } from "react-flip-toolkit";
 import { motion } from "framer-motion";
 import ReactCardFlip from "react-card-flip";
+import { useSpring, animated } from '@react-spring/web';
+import CardBack from '../public/CardBack.jpeg'
 
-const CardStyle = {
-    bg:'white',
-    margin:'5pt',
-    paddingTop:'10pt',
-    paddingLeft:'5pt',
-    paddingRight:'5pt',
-    paddingBottom:'10pt',
-    w:'220px',
-    borderWidth:'1px',
-    display:'flex',
-    flex:'3',
-    flexDirection:'column',
-    alignItems:'center',
-}
+    const CardStyle = {
+        // bg:'white',
+        // margin:'5pt',
+        // marginTop: '5pt',
+        // paddingTop:'5pt',
+        // paddingLeft:'5pt',
+        // paddingRight:'5pt',
+        // paddingBottom:'10pt',
+        // w:'220px',
+        // borderWidth:'1px',
+        // display:'flex',
+        // // flex:'3',
+        // flexDirection:'column',
+        // alignItems:'center',
+    }
 
-const Card = props => {
+
+export default function Card(props) {
+    const { contentVariants, cardContentVariants, thumbnailVariants, expandedVariants, contentBlockVariants, cardVariants } = useContext(Context)
     const [isFlipped, setIsFlipped] = useState(false);
+    const [selectedCard, setSelectedCard] = useState(null);
+
 
     return (
-    <>
-        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-        <Box
-            style={CardStyle}
-            onMouseEnter={() => setIsFlipped((prev) => !prev)}
-            key={props.id}
-            className='CardFront'
-        >
-        <Center />
 
+    <Box
+        key={props.id}
+        // style={CardStyle}
+        bg='lightPink'
+        borderRadius='10'
+    >
         <Image
-            src={props.src}
-            alt="tarot card"
-            width={225}
+            // key={props.id}
+            width={200}
             height={300}
+            backgroundImage={props.src}
+            // alt="tarot card"
             loader={props.loaderProp}
             unoptimized="true"
+            // backgroundRepeat= "no-repeat"
+            backgroundSize= "100% 100%"
+            // borderRadius='3'
         />
-        </Box>
 
-        {/* <motion.div
-            whileHover={{ scale: 0.8 }}
-        > */}
-
-        <Box
-            style={CardStyle}
-            onMouseLeave={() => setIsFlipped((prev) => !prev)}
-            key={props.id}
-            className='CardBack'
-            bg='white'
-        >
-        <Center />
-
-            <Heading>{props.name}</Heading>
-            <Text>arcana: {props.arcana}</Text>
-            <Text>description: {props.description}</Text>
-
-        {/* </motion.div> */}
-        </Box>
-        </ReactCardFlip>
-    </>
+    </Box>
     );
-};
-
-export default Card;
-
-
-// export default function Card() {
-//     const { tarots, loaderProp, cardDraw } = useContext(Context);
-
-
-//     return (
-//         <TarotCards
-//         value={tarot.id}
-//         />
-//     )
-// }
+}

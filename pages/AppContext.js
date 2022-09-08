@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState, createContext, useContext, useRouter } from "react";
-import { Flipper, Flipped } from "react-flip-toolkit";
 
 
 const Context = createContext({});
@@ -15,6 +14,10 @@ const Provider = ({ children }) => {
 
     const refreshPage = () => {
         window.location.reload(false)
+    };
+
+    const refreshCards = () => {
+        location.reload(false)
     };
 
     const loaderProp =({ src }) => {
@@ -41,8 +44,22 @@ const Provider = ({ children }) => {
         const j = Math.floor(Math.random() * (i + 1))
             ;[array[i], array[j]] = [array[j], array[i]]
         }
+        return array;
     };
     const shuffledTarots = shuffle(tarots);
+
+
+    function shuffleDeck() {   
+        const shuffled = [];
+        while (tarots.length > 0) {
+        let i = Math.floor(Math.random() * max);
+            shuffled.push(tarots[i]);
+            tarots.splice(i, 1);
+        }
+        setTarots([...shuffled]);   
+
+        console.log('shuffleDeck')
+    }
 
 
     const cardDraw = () => {
@@ -56,16 +73,21 @@ const Provider = ({ children }) => {
     }};
 
 
+
     return (
         <Context.Provider
             value={{
                 tarots,
+                setTarots,
                 showDeck,
                 refreshPage,
+                refreshCards,
                 loaderProp,
                 shuffle,
                 cardDraw,
                 handleSubmit,
+                shuffleDeck,
+                shuffledTarots,
             }}>
             {children}
         </Context.Provider>
