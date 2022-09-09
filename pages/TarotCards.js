@@ -6,7 +6,6 @@ import { motion, useAnimationControls, AnimatePresence } from "framer-motion";
 import Card from "../components/Card";
 import { Container, Text, Stack, Box, SimpleGrid, Button, GridItem, Grid } from "@chakra-ui/react";
 import { Reading } from "../components/Reading";
-import Major from "./Major";
 
 
 export default function TarotCards(props) {
@@ -21,6 +20,19 @@ export default function TarotCards(props) {
     useEffect(() => {
         setSpread(tarots);
     }, [tarots]);
+
+    const child1Variants = {
+        hidden: { y: "100vw" },
+        visible: { y: "0", transition: { delay: 1, duration: 1 } }
+      };
+      const child2Variants = {
+        hidden: { x: "-100vw" },
+        visible: { x: "0", transition: { delay: 2, duration: 1 } }
+      };
+      const child3Variants = {
+        hidden: { x: "100vw" },
+        visible: { x: "0", transition: { delay: 2, duration: 1 } }
+      };
 
 
     return(
@@ -99,11 +111,12 @@ export default function TarotCards(props) {
             columns={[1, null, 3]}
             spacingX='5px'
             w='85vw'
-            marginTop='5%'
+            marginTop='4%'
             // spacingY='100px'
             // spacing='10pt'
             // minChildWidth='180px'
         >
+
                 <Text
                     color='white'
                     textDecoration='underline'
@@ -112,14 +125,7 @@ export default function TarotCards(props) {
                 >
                     {tarots.id} <br /> {tarots.id}
                 </Text>
-                <Text
-                    color='white'
-                    textDecoration='underline'
-                    fontSize='15pt'
-                    textAlign='center'
-                >
-                    {tarots.id} {tarots.id}
-                </Text>
+
                 <Text
                     color='white'
                     textDecoration='underline'
@@ -129,7 +135,15 @@ export default function TarotCards(props) {
                     {tarots.id} {tarots.id}
                 </Text>
 
-            <AnimatePresence>
+                <Text
+                    color='white'
+                    textDecoration='underline'
+                    fontSize='15pt'
+                    textAlign='center'
+                >
+                    {tarots.id} {tarots.id}
+                </Text>
+
 
             {tarots.slice(0, 3).map((tarot, id) => {
                 return (
@@ -138,7 +152,7 @@ export default function TarotCards(props) {
                         display='flex'
                         flexDirection='column'
                         alignItems='center'
-                        borderWidth='2pt'
+                        borderWidth='1.5pt'
                         width='18vw'
                         height='40vh'
                         paddingTop='1.5'
@@ -146,45 +160,23 @@ export default function TarotCards(props) {
                         // bg='white'
                         marginLeft='18%'
                         borderRadius='5'
+                        bg='black'
                     >
+                <AnimatePresence>
                 <motion.div
                     layout
-                    initial= {{
-                        opacity: 0,
-                        scale: 1.5,
-                        transition: { duration: 0.75 },
-                    }}
-                    // initial={{ opacity: 0, scale: 0.5, rotate: 90, }}
-                    animate={{ opacity: 1, scale: 1, }}
+                    rotateY= '0'
+                    initial={{ y: '-1000', opacity: 0 }}
+                    animate={{ opacity: 1.5, x: 16, y: 15 }}
                     transition={{
-                        type: 'tween',
+                        type:'spring',
+                        duration: 2,
                         delay: 1,
-                        duration: 5,
-                        staggerChildren: 0.5,
-                    // default: {
-                    //     duration: 0.3,
-                    //     ease: [0, 0.71, 0.2, 1.01],
-                    //     stagger: 0.5,
-                    //     delay: 1,
-                    // },
-                    // scale: {
-                    //     type: "spring",
-                    //     damping: 5,
-                    //     stiffness: 150,
-                    //     restDelta: 0.001
-                    // }
+                        // staggerChildren: 0.5,
+                        // beforeChildre: 'true',
                     }}
-                    // whileHover={{
-                    //     scale: 1.15,
-                    //     transition: { duration: 1 },
-                    // }}
+                    // init= {{ y: -200 }}
                 >
-                    {/* <Box
-                        display='flex'
-                        // flex:'3',
-                        flexDirection='column'
-                        alignItems='center'
-                    > */}
                         <Card
                             key={tarot.id}
                             src={tarot.image}
@@ -196,13 +188,14 @@ export default function TarotCards(props) {
                             unoptimized="true"
                         />
                     </motion.div>
+                    </AnimatePresence>
                     </Box>
                 {/* </motion.div> */}
                 </>
                 )}
             )}
 
-            </AnimatePresence>
+            {/* </AnimatePresence> */}
 
             </SimpleGrid>
             </Stack>

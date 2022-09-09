@@ -167,13 +167,15 @@ export default function Landing() {
             There are many different variations of a three card tarot
             spread that an inquier may use:
         </Text>
-    
+        <br />
+
             <Grid
             color='white'
             fontFamily='Aboreto'
             fontSize='15pt'
+            lineHeight='27pt'
+            textAlign='justify'
             >
-                <br />
                 <GridItem>Past, Present, Future</GridItem>
                 <GridItem>Situation, Action, Outcome</GridItem>
                 <GridItem>You, Relationship, Partner</GridItem>
