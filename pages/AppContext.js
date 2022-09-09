@@ -49,17 +49,17 @@ const Provider = ({ children }) => {
     const shuffledTarots = shuffle(tarots);
 
 
-    function shuffleDeck() {   
-        const shuffled = [];
-        while (tarots.length > 0) {
-        let i = Math.floor(Math.random() * max);
-            shuffled.push(tarots[i]);
-            tarots.splice(i, 1);
-        }
-        setTarots([...shuffled]);   
+    // function shuffleDeck() {   
+    //     const shuffled = [];
+    //     while (tarots.length > 0) {
+    //     let i = Math.floor(Math.random() * max);
+    //         shuffled.push(tarots[i]);
+    //         tarots.splice(i, 1);
+    //     }
+    //     setTarots([...shuffled]);   
 
-        console.log('shuffleDeck')
-    }
+    //     console.log('shuffleDeck')
+    // }
 
 
     const cardDraw = () => {
@@ -86,7 +86,7 @@ const Provider = ({ children }) => {
                 shuffle,
                 cardDraw,
                 handleSubmit,
-                shuffleDeck,
+                // shuffleDeck,
                 shuffledTarots,
             }}>
             {children}

@@ -95,11 +95,12 @@ section:nth-child(2) {
 
 section:nth-child(3) {
   background: #3b413c;
-  height: 120vh;
+  height: 130vh;
 }
 
 section:nth-child(4) {
   background: #3b413c;
+  height: 100vh;
 }
 
 section:nth-child(5) {
@@ -111,6 +112,8 @@ section span {
   transform: translateX(-100px);
   opacity: 0;
 }
+
+
 
 
 /* body { */

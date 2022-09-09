@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useContext, useRef } from "react";
 import { Context } from "./AppContext";
 import { Router, useRouter } from "next/router";
-import { Box, Text, SimpleGrid, Center, Grid, GridItem, ListItem, UnorderedList, Container } from "@chakra-ui/react";
+import { Box, Text, SimpleGrid, Center, Grid, GridItem, Button } from "@chakra-ui/react";
 import { useInView } from "framer-motion";
 import CardContent from "../components/CardContent";
 import TarotCards from "./TarotCards";
@@ -26,12 +26,13 @@ function Section({ children }) {
       );
     }
 
-export default function Landing({onClick}) {
+export default function Landing() {
     const { shuffleDeck } = useContext(Context);
     const [onSubmit, setSubmit] = useState(false);
     const [input, setInput] = useState('');
     const [data, setData] = useState({ question: "" });
 
+    const router = useRouter();
 
 
     return (
@@ -70,7 +71,7 @@ export default function Landing({onClick}) {
 
 
         <Section>
-        <SimpleGrid columns={2}>
+        <SimpleGrid minChildWidth='12px'>
 
         <Box
             max-width='50vw'
@@ -91,9 +92,14 @@ export default function Landing({onClick}) {
             display='flex'
             flexDirection='column'
             alignItems='center'
-            paddingTop='13%'
-            paddingRight='15%'
+            paddingTop='7%'
+            paddingRight='5%'
             width='100%'
+        >
+        <Box
+        marginTop='25%'
+        borderRadius='7'
+        padding= '2'
         >
         <Text
             color='white'
@@ -101,28 +107,30 @@ export default function Landing({onClick}) {
             fontSize='20pt'
             lineHeight='30pt'
             // letterSpacing='tight'
-            // textAlign='justify'
-            >
-                Tarot is a form of divination where tarot
-                cards and their associated meanings are used
-                to gain insight into the past, present, or future.
-                A traditional tarot deck consists of
-                78 cards, divided into two primary groups:
-                the Major Arcana and the Minor Arcana.
-            </Text>
+            textAlign='justify'
+        >
+            Tarot is a form of divination where tarot
+            cards and their associated meanings are used
+            to gain insight into the past, present, or future.
+            A traditional tarot deck consists of
+            78 cards, divided into two primary groups:
+            the Major Arcana and the Minor Arcana.
+        </Text>
+        </Box>
             </Box>
         </SimpleGrid>
         </Section>
+
 
 
         <Section>
         <SimpleGrid columns={2}>
 
         <Box
-            max-width='10vw'
-            max-height='110vh'
+            maxWidth='10vw'
+            maxHeight='130vh'
             bg='white'
-            height='120vh'
+            height='130vh'
             width='3.25vw'
             // marginTop='25%'
             // borderRadius='5'
@@ -136,15 +144,15 @@ export default function Landing({onClick}) {
         display='flex'
         flexDirection='column'
         alignItems='center'
-        paddingTop='13%'
+        paddingTop='7%'
         paddingRight='15%'
         width='100%'
         >
         <Text
             color='white'
             fontFamily='Merienda'
-            fontSize='15pt'
-            lineHeight='20pt'
+            fontSize='20pt'
+            lineHeight='27pt'
             letterSpacing='tight'
             // textAlign='justify'
         >
@@ -163,6 +171,7 @@ export default function Landing({onClick}) {
             <Grid
             color='white'
             fontFamily='Aboreto'
+            fontSize='15pt'
             >
                 <br />
                 <GridItem>Past, Present, Future</GridItem>
@@ -170,8 +179,7 @@ export default function Landing({onClick}) {
                 <GridItem>You, Relationship, Partner</GridItem>
                 <GridItem>Strengths, Weakness, Advice</GridItem>
                 <GridItem>Solution 1, Solution 2, How to Choose</GridItem>
-                <GridItem>You, You Path, Your Potential</GridItem>
-                <GridItem>Mind, Body, Spirit</GridItem>
+                <GridItem>You, Your Path, Your Potential</GridItem>
             </Grid>
             </Box>
 
@@ -198,10 +206,11 @@ export default function Landing({onClick}) {
         />
 
         <Box
-                paddingTop='50%'
-                paddingRight='15%'
+            paddingTop='50%'
+            paddingRight='15%'
         >
             <CardContent />
+
         </Box>
 
         </SimpleGrid>
