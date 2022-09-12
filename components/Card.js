@@ -16,7 +16,7 @@ export default function Card(props) {
             width={200}
             height={300}
             backgroundImage={props.src}
-            // alt="tarot card"
+            alt=""
             loader={props.loaderProp}
             unoptimized="true"
             // backgroundRepeat= "no-repeat"

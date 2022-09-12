@@ -2,6 +2,7 @@
   "name": "tarot",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kalenmartin.github.io/tarot",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -5,7 +5,7 @@ import { useEffect, useState, createContext, useContext, useRouter } from "react
 
 const Context = createContext({});
 
-const Provider = ({ children }) => {
+export default function Provider({ children }) {
     const [tarots, setTarots] = useState([]);
     const [showDeck, setShowDeck] = useState(false);
     const [fullScreen, setFullScreen] = useState(false);
