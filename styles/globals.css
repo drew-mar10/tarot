@@ -2,6 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background: #3b413c;
   font-family: 'Bebas Neue', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-family: 'Sriracha', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -74,7 +75,7 @@ li {
   left: 0;
   bottom: 0;
   width: 300px;
-  background: #fff;
+  background: #3b413c;
 }
 
 section {
@@ -90,12 +91,12 @@ section {
 
 section:nth-child(2) {
   background: #3b413c;
-  height: 105vh;
+  height: 110vh;
 }
 
 section:nth-child(3) {
   background: #3b413c;
-  height: 130vh;
+  height: 150vh;
 }
 
 section:nth-child(4) {

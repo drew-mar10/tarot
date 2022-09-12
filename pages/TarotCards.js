@@ -9,7 +9,7 @@ import { Reading } from "../components/Reading";
 
 
 export default function TarotCards(props) {
-    const { tarots } = useContext(Context);
+    const { tarots, homeVariant, nameVariant, letterVariant, page2Variant, transition, fadeVariant } = useContext(Context);
     const [spread, setSpread] = useState(tarots);
     const router = useRouter();
     const query = router.query;
@@ -21,31 +21,14 @@ export default function TarotCards(props) {
         setSpread(tarots);
     }, [tarots]);
 
-    const child1Variants = {
-        hidden: { y: "100vw" },
-        visible: { y: "0", transition: { delay: 1, duration: 1 } }
-      };
-      const child2Variants = {
-        hidden: { x: "-100vw" },
-        visible: { x: "0", transition: { delay: 2, duration: 1 } }
-      };
-      const child3Variants = {
-        hidden: { x: "100vw" },
-        visible: { x: "0", transition: { delay: 2, duration: 1 } }
-      };
-
 
     return(
     <>
+
         <Box
         width='100vw'
         sx={{
-            // backgroundImage: 'url(/SpreadBG.png)',
             backgroundSize: "100% 100%",
-            // backgroundRepeat: "no-repeat",
-            // borderWidth: '2pt',
-            // // borderColor: '#B07E09',
-            // borderRadius: '5',
             backgroundColor: '#3b413c',
             display: 'flex',
             flexDirection: 'column',
@@ -55,20 +38,16 @@ export default function TarotCards(props) {
             }}
         >
 
-
-        <Box
-            maxWidth='100vw'
-            maxHeight='10vh'
-            bg='white'
-            height='3.25vh'
-            width='100vw'
-            // marginTop='25%'
-            // borderRadius='5'
-            boxShadow= '75px 75px 75px rgba(0, 0, 0, 0)'
-            // position='relative'
-            paddingTop='1.65%'
-            marginTop='15pt'
-        />
+<AnimatePresence>
+    <motion.main
+        layout
+        variants={letterVariant}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ ...transition }}
+        bg='#3b413c'
+    >
 
         <Container
             paddingTop='40px'
@@ -80,19 +59,27 @@ export default function TarotCards(props) {
         >
 
         <Box
-            marginTop='7px'
+            // marginTop='7px'
             width='75vw'
             display='flex'
             flexDirection='column'
             justifyContent='center'
             alignItems='center'
-            // bg="#B07E09"
-            // ring='2pt'
-            // ringColor='white'
-            // ringOffset='2pt'
-            // ringOffsetColor='#3b413c'
             borderRadius='7'
             padding='2%'
+        >
+        <Box
+            bg='white'
+            maxWidth='100vw'
+            maxHeight='10vh'
+            height='3.25vh'
+            width='100vw'
+            paddingBottom='3%'
+            display='flex'
+            flexDirection='column'
+            justifyContent='center'
+            // alignContent='center'
+            alignItems='center'
         >
             <Text
                 fontSize='45pt'
@@ -100,10 +87,13 @@ export default function TarotCards(props) {
                 letterSpacing='tight'
                 textAlign='justify'
                 fontFamily='Merienda'
+                paddingTop='6%'
             >
                 question: {question}
             </Text>
         </Box>
+        </Box>
+
 
         <Stack spacing='100vw'direction='column'>
 
@@ -112,9 +102,6 @@ export default function TarotCards(props) {
             spacingX='5px'
             w='85vw'
             marginTop='4%'
-            // spacingY='100px'
-            // spacing='10pt'
-            // minChildWidth='180px'
         >
 
                 <Text
@@ -152,7 +139,7 @@ export default function TarotCards(props) {
                         display='flex'
                         flexDirection='column'
                         alignItems='center'
-                        borderWidth='1.5pt'
+                        borderWidth='1pt'
                         width='18vw'
                         height='40vh'
                         paddingTop='1.5'
@@ -161,21 +148,20 @@ export default function TarotCards(props) {
                         marginLeft='18%'
                         borderRadius='5'
                         bg='black'
+                        // boxShadow= '30px 75px 100px 100px rgba(0, 0, 0, 0.5)'
                     >
                 <AnimatePresence>
                 <motion.div
                     layout
-                    rotateY= '0'
+                    // variants= {nameVariant}
                     initial={{ y: '-1000', opacity: 0 }}
-                    animate={{ opacity: 1.5, x: 16, y: 15 }}
+                    animate={{ opacity: 1.5, x: 16, y: 17 }}
                     transition={{
                         type:'spring',
                         duration: 2,
                         delay: 1,
-                        // staggerChildren: 0.5,
-                        // beforeChildre: 'true',
                     }}
-                    // init= {{ y: -200 }}
+                    exit= {{ opacity: 0 }}
                 >
                         <Card
                             key={tarot.id}
@@ -232,27 +218,26 @@ export default function TarotCards(props) {
         marginTop='15%'
         marginBottom='5%'
         >
-        <Button
-            // className="close"
-            bg='#B07E09'
-            type="submit"
-            borderWidth='1pt'
-            textColor='white'
-            onClick={() => router.push("/")}
-        >
-            New Reading
-        </Button>
+            <Button
+                // className="close"
+                bg='#B07E09'
+                type="submit"
+                borderWidth='1pt'
+                textColor='white'
+                onClick={() => router.push("/")}
+            >
+                New Reading
+            </Button>
         </Box>
 
-            </Container>
+        </Container>
+
+        </motion.main>
+        </AnimatePresence>
+
         </Box>
 
     </>
     )
 }
-
-{/* <Button
-className="close"
-onClick={() => onClick(false)}>
-</Button> */}
 

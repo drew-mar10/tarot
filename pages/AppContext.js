@@ -72,6 +72,50 @@ const Provider = ({ children }) => {
             }, 0)
     }};
 
+    const transition = {
+        duration: 1.4,
+        ease: [0.6, 0.01, -0.05, 0.9]
+    };
+
+    const homeVariant = {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 1 }
+    };
+
+    const page2Variant = {
+        initial: { opacity: 1 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0, transition: { delay: 0.79 } }
+    }
+
+    const fadeVariant = {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 }
+    };
+
+    const nameVariant = {
+        animate: i => ({
+        transition: {
+            delayChildren: 0.55,
+            staggerChildren: 0.12,
+            staggerDirection: i
+        }
+        }),
+        exit: i => ({
+        transition: {
+            staggerChildren: 0.08,
+            staggerDirection: i
+        }
+        })
+    };
+
+    const letterVariant = {
+        initial: { opacity: 1, y: "120%" },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: "-120%" },
+        duration: 4,
+    };
 
 
     return (
@@ -86,8 +130,13 @@ const Provider = ({ children }) => {
                 shuffle,
                 cardDraw,
                 handleSubmit,
-                // shuffleDeck,
                 shuffledTarots,
+                transition,
+                homeVariant,
+                fadeVariant,
+                page2Variant,
+                nameVariant,
+                letterVariant,
             }}>
             {children}
         </Context.Provider>

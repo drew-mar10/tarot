@@ -21,20 +21,43 @@ const CardContent = ({ onClick }) => {
             width='40vw'
             height='25vh'
             borderRadius='5'
+            display='flex'
+            flexDirection='column'
+            alignItems='center'
             // marginTop='-1%'
             // bg="#B07E09"
         >
+        <Box
+        width='100%'
+        bg='#B07E09'
+        height='33%'
+        borderRadius='5'
+        display='flex'
+        flexDirection='column'
+        alignItems='center'
+        // boxShadow= '0px -5px 75px 100px rgba(0, 0, 0, 0.7)'
+        >
+        <Box
+            display='flex'
+            flexDirection='column'
+            alignItems='center'
+            width='100%'
+            marginTop='1%'
+        >
             <Input
                 type="text"
-                width='100%'
+                width='99%'
+                height='8vh'
                 textColor="black"
                 bg='white'
                 // margin='auto'
-                marginTop='20%'
-                borderColor="#3b413c"
-                boxShadow= '0 15px 15px rgba(0, 0, 0, 0.1)'
+                marginTop='2%'
+                marginRight='7%'
+                // borderColor="#3b413c"
                 borderRadius='5'
                 // borderWidth='3'
+                textAlign='center'
+                letterSpacing='wider'
                 placeholder="What is it that you seek to know?"
                 alignItems='center'
                 value={data.question}
@@ -43,23 +66,15 @@ const CardContent = ({ onClick }) => {
                         question: event.target.value,
                 })}
             />
+        </Box>
+        </Box>
 
 
         <Box
             display='flex'
             flexDirection='column'
             alignItems='center'
-        >
-        <Button
-            marginTop='5%'
-            ring='2pt'
-            ringColor='white'
-            ringOffset='2pt'
-            ringOffsetColor='#3b413c'
-            bg='#B07E09'
-            borderRadius='5'
-            height='25px'
-            width= '75%'
+            marginTop='10%'
         >
             <Link
                 href={{
@@ -67,13 +82,24 @@ const CardContent = ({ onClick }) => {
                 query: data}}
             >
             <a style={{
-                color: "black",
+                color: "white",
                 textDecoration: "none"
             }}>
+                <Button
+                    marginTop='5%'
+                    ring='1.5pt'
+                    ringColor='white'
+                    ringOffset='2pt'
+                    ringOffsetColor='#3b413c'
+                    bg='#B07E09'
+                    borderRadius='5'
+                    height='30px'
+                    width= '95%'
+                >
                 Discover Your Fate
+                </Button>
             </a>
             </Link>
-        </Button>
         {/* <Button
             marginTop='20%'
             bg='#B07E09'

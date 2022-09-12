@@ -1,34 +1,36 @@
 import React from "react";
 import { useState, useContext, useRef } from "react";
+import Link from "next/link";
 import { Context } from "./AppContext";
 import { Router, useRouter } from "next/router";
-import { Box, Text, SimpleGrid, Center, Grid, GridItem, Button } from "@chakra-ui/react";
-import { useInView } from "framer-motion";
+import { Box, Text, SimpleGrid, Center, Grid, GridItem, IconButton } from "@chakra-ui/react";
+import { ArrowDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { useInView, AnimatePresence, motion, MotionConfig } from "framer-motion";
 import CardContent from "../components/CardContent";
 import TarotCards from "./TarotCards";
 
-function Section({ children }) {
-    const ref = useRef(null);
-    const isInView = useInView(ref);
+    function Section({ children }) {
+        const ref = useRef(null);
+        const isInView = useInView(ref);
 
     return (
         <section ref={ref}>
-          <span
+            <span
             style={{
-              transform: isInView ? "none" : "translateX(-200px)",
-              opacity: isInView ? 1 : 0,
-              transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+                transform: isInView ? "none" : "translateX(-200px)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 1s"
             }}
-          >
-            {children}
-          </span>
+            >
+                {children}
+            </span>
         </section>
-      );
+        );
     }
 
+
 export default function Landing() {
-    const { shuffleDeck } = useContext(Context);
-    const [onSubmit, setSubmit] = useState(false);
+    const { shuffleDeck, letterVariant, transition, fadeVariant, homeVariant } = useContext(Context);
     const [input, setInput] = useState('');
     const [data, setData] = useState({ question: "" });
 
@@ -37,21 +39,32 @@ export default function Landing() {
 
     return (
         <>
+    <AnimatePresence>
+
+        <motion.main
+            layout
+            // variants={homeVariant}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{delay: 0.8, ...transition }}
+        >
 
         <Section>
+        <SimpleGrid columns={2}>
 
             <Box
-            max-width='50vw'
-            max-height='130vh'
-            bg='white'
-            height='130vh'
-            width='3.25vw'
-            // marginTop='25%'
-            // borderRadius='5'
-            boxShadow= '75px 75px 75px rgba(0, 0, 0, 0)'
-            // position='relative'
-            paddingLeft='1.65%'
-            marginLeft='75pt'
+                max-width='50vw'
+                max-height='130vh'
+                bg='white'
+                height='130vh'
+                width='3.25vw'
+                // marginTop='25%'
+                // borderRadius='5'
+                boxShadow= '75px 75px 75px rgba(0, 0, 0, 0)'
+                // position='relative'
+                paddingLeft='1.65%'
+                marginLeft='75pt'
             >
                 {/* <Center /> */}
                 <Text
@@ -61,12 +74,36 @@ export default function Landing() {
                     fontFamily='Aboreto'
                     // marginLeft='5%'
                     letterSpacing='tight'
-                    paddingTop='17%'
+                    paddingTop='1%'
                     // boxShadow= '0 75px 50px rgba(0, 0, 0, 0.1)'
                 >
                     Tarot
                 </Text>
             </Box>
+
+        <Box
+            display='flex'
+            flexDirection='row'
+            alignItems='flex-end'
+            justifyContent='flex-end'
+            // paddingTop='7%'
+            width='50vw'
+            paddingBottom='40%'
+            paddingRight='10%'
+        >
+            <Link
+                href='#question'
+            >
+            <a>
+                <IconButton
+                    bg='#3b413c'
+                    icon={<ArrowDownIcon />}
+                />
+            </a>
+            </Link>
+        </Box>
+
+        </SimpleGrid>
         </Section>
 
 
@@ -87,20 +124,20 @@ export default function Landing() {
             marginLeft='75pt'
             position='relative'
         />
-
+        <Box
+        width='90vw'
+        marginTop='25%'
+        >
         <Box
             display='flex'
             flexDirection='column'
             alignItems='center'
             paddingTop='7%'
             paddingRight='5%'
-            width='100%'
+            width='50vw'
         >
-        <Box
-        marginTop='25%'
-        borderRadius='7'
-        padding= '2'
-        >
+        {/* <Box
+        > */}
         <Text
             color='white'
             fontFamily='Merienda'
@@ -116,7 +153,8 @@ export default function Landing() {
             78 cards, divided into two primary groups:
             the Major Arcana and the Minor Arcana.
         </Text>
-        </Box>
+        {/* </Box> */}
+            </Box>
             </Box>
         </SimpleGrid>
         </Section>
@@ -124,13 +162,13 @@ export default function Landing() {
 
 
         <Section>
-        <SimpleGrid columns={2}>
+        <SimpleGrid minChildWidth='12px'>
 
         <Box
             maxWidth='10vw'
-            maxHeight='130vh'
+            maxHeight='150vh'
             bg='white'
-            height='130vh'
+            height='150vh'
             width='3.25vw'
             // marginTop='25%'
             // borderRadius='5'
@@ -141,12 +179,18 @@ export default function Landing() {
         />
 
         <Box
+            width='90vw'
+            marginTop='25%'
+        >
+
+        <Box
         display='flex'
         flexDirection='column'
         alignItems='center'
-        paddingTop='7%'
+        paddingTop='10%'
         paddingRight='15%'
-        width='100%'
+        width='65vw'
+        height='150vh'
         >
         <Text
             color='white'
@@ -154,7 +198,7 @@ export default function Landing() {
             fontSize='20pt'
             lineHeight='27pt'
             letterSpacing='tight'
-            // textAlign='justify'
+            textAlign='justify'
         >
             This reading will consist of a traditional three card
             spread. Considered by both professional and amatuer readers
@@ -167,7 +211,6 @@ export default function Landing() {
             There are many different variations of a three card tarot
             spread that an inquier may use:
         </Text>
-        <br />
 
             <Grid
             color='white'
@@ -176,13 +219,15 @@ export default function Landing() {
             lineHeight='27pt'
             textAlign='justify'
             >
-                <GridItem>Past, Present, Future</GridItem>
-                <GridItem>Situation, Action, Outcome</GridItem>
-                <GridItem>You, Relationship, Partner</GridItem>
-                <GridItem>Strengths, Weakness, Advice</GridItem>
-                <GridItem>Solution 1, Solution 2, How to Choose</GridItem>
-                <GridItem>You, Your Path, Your Potential</GridItem>
+                <br />
+                <GridItem> <ChevronRightIcon /> Past, Present, Future</GridItem>
+                <GridItem> <ChevronRightIcon /> Situation, Action, Outcome</GridItem>
+                <GridItem> <ChevronRightIcon /> You, Relationship, Partner</GridItem>
+                <GridItem>  <ChevronRightIcon />Strengths, Weakness, Advice</GridItem>
+                <GridItem> <ChevronRightIcon /> Solution 1, Solution 2, How to Choose</GridItem>
+                <GridItem> <ChevronRightIcon /> You, Your Path, Your Potential</GridItem>
             </Grid>
+            </Box>
             </Box>
 
             </SimpleGrid>
@@ -208,6 +253,7 @@ export default function Landing() {
         />
 
         <Box
+            id='question'
             paddingTop='50%'
             paddingRight='15%'
         >
@@ -218,89 +264,8 @@ export default function Landing() {
         </SimpleGrid>
         </Section>
 
-
-        {/* <Section>
-            <TarotCards />
-        </Section> */}
-
-            {/* <Box
-            bg='#B07E09'
-            width='100vw'
-            display= 'flex'
-            flexDirection= 'row'
-            justifyContent='center'
-            borderWidth='2px'
-            paddingTop='1%'
-            paddingBottom='1%'
-            // ring='5pt'
-            // ringColor='white'
-            // ringOffset='3pt'
-            // ringOffsetColor='#3b413c'
-            // borderRadius='7'
-            >
-                <Heading
-                    textColor='white'
-                    fontSize='70'
-                    color='white'
-                    fontFamily='Aboreto'
-                >
-                    Tarot
-                </Heading>
-            </Box>
-
-            <Box
-            sx={{
-                backgroundColor: 'black',
-                // backgroundImage: 'url(/SpreadBG.png)',
-                backgroundSize: "100% 100%",
-                backgroundRepeat: "no-repeat",
-                width: "100vw",
-                height: "90vh",
-                display: 'flex',
-                flexDirection: 'column',
-                flex: 1,
-                position: "absolute",
-                overflow: 'scroll',
-            }}>
-
-        <Box
-            marginTop='7%'
-            // marginBottom='3%'
-            marginRight='5%'
-            marginLeft='5%'
-            padding='2%'
-            // borderWidth='1pt'
-            display='flex'
-            flexDirection='column'
-            alignItems='center'
-            ring='5pt'
-            ringColor='white'
-            ringOffset='3pt'
-            ringOffsetColor='#3b413c'
-            bg='#B07E09'
-            // boxShadow='#B07E09'
-            borderRadius='7'
-        >
-            <Text
-            color='white'
-            fontFamily='Merienda'
-            fontSize='15pt'
-            lineHeight='20pt'
-            letterSpacing='tight'
-            textAlign='justify'
-            >
-                Tarot is a form of divination where tarot
-                cards and their associated meanings are used
-                to gain insight into the past, present, or future.
-                A traditional tarot deck consists of
-                78 cards, divided into two primary groups:
-                the Major Arcana and the Minor Arcana.
-            </Text>
-        </Box>
-
-        <Deck />
-
-    </Box> */}
+        </motion.main>
+    </AnimatePresence>
 
     </>
     )
