@@ -1,5 +1,5 @@
 import React from "react";
-import { Context } from "./AppContext";
+import { Context } from "./Provider";
 import { useEffect, useState, useContext } from "react";
 import { Router, useRouter } from "next/router";
 import { motion, useAnimationControls, AnimatePresence } from "framer-motion";

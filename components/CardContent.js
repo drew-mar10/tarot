@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext, useState } from "react";
-import { Context } from "../pages/AppContext";
+import { Context } from "../pages/Provider";
 import { motion } from 'framer-motion';
 import Link from "next/link";
 import { Box, Button, Container, Input, Center } from "@chakra-ui/react";

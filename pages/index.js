@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useContext, useRef } from "react";
 import Link from "next/link";
-import { Context } from "./AppContext";
+import { Context } from "./Provider";
 import { Router, useRouter } from "next/router";
 import { Box, Text, SimpleGrid, Center, Grid, GridItem, IconButton } from "@chakra-ui/react";
 import { ArrowDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
@@ -30,7 +30,7 @@ import TarotCards from "./TarotCards";
 
 
 export default function Index() {
-    const { shuffleDeck, letterVariant, transition, fadeVariant, homeVariant } = useContext(Context);
+    const { transition } = useContext(Context);
     const [input, setInput] = useState('');
     const [data, setData] = useState({ question: "" });
 
