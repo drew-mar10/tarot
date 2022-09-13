@@ -7,7 +7,6 @@ export default function Card(props) {
     return (
 
     <Box
-        // key={props.id}
         bg='lightPink'
         borderRadius='10'
     >
@@ -19,9 +18,7 @@ export default function Card(props) {
             alt=""
             loader={props.loaderProp}
             unoptimized="true"
-            // backgroundRepeat= "no-repeat"
             backgroundSize= "100% 100%"
-            // borderRadius='3'
         />
 
     </Box>

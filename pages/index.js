@@ -7,7 +7,7 @@ import { Box, Text, SimpleGrid, Center, Grid, GridItem, IconButton } from "@chak
 import { ArrowDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useInView, AnimatePresence, motion, MotionConfig } from "framer-motion";
 import CardContent from "../components/CardContent";
-import TarotCards from "./TarotCards";
+
 
     function Section({ children }) {
         const ref = useRef(null);
@@ -61,7 +61,6 @@ export default function Index() {
                 width='3.25vw'
                 // marginTop='25%'
                 // borderRadius='5'
-                boxShadow= '75px 75px 75px rgba(0, 0, 0, 0)'
                 // position='relative'
                 paddingLeft='1.65%'
                 marginLeft='75pt'
@@ -118,42 +117,54 @@ export default function Index() {
             width='3.25vw'
             // marginTop='25%'
             // borderRadius='5'
-            boxShadow= '75px 75px 75px rgba(0, 0, 0, 0)'
             // position='relative'
             paddingLeft='1.65%'
             marginLeft='75pt'
             position='relative'
         />
         <Box
-        width='90vw'
-        marginTop='25%'
+            width='85vw'
+            marginTop='25%'
+            paddingTop='7%'
         >
         <Box
             display='flex'
             flexDirection='column'
             alignItems='center'
-            paddingTop='7%'
-            paddingRight='5%'
             width='50vw'
+            bg='white'
+            padding='1%'
+            height='41.25vh'
         >
-        {/* <Box
-        > */}
+        <Box
+            bg='#B07E09'
+            width='63vw'
+            padding='2%'
+            marginTop='1%'
+            borderRadius='5'
+            ring='1.5pt'
+            ringColor='white'
+            ringOffset='2pt'
+            ringOffsetColor='#3b413c'
+        >
         <Text
             color='white'
-            fontFamily='Merienda'
-            fontSize='20pt'
+            fontFamily='Poiret One'
+            fontSize='25pt'
             lineHeight='30pt'
             // letterSpacing='tight'
             textAlign='justify'
+            as='b'
         >
             Tarot is a form of divination where tarot
             cards and their associated meanings are used
             to gain insight into the past, present, or future.
             A traditional tarot deck consists of
             78 cards, divided into two primary groups:
-            the Major Arcana and the Minor Arcana.
+            <br />
+            Major Arcana and Minor Arcana.
         </Text>
-        {/* </Box> */}
+        </Box>
             </Box>
             </Box>
         </SimpleGrid>
@@ -172,33 +183,47 @@ export default function Index() {
             width='3.25vw'
             // marginTop='25%'
             // borderRadius='5'
-            boxShadow= '75px 75px 75px rgba(0, 0, 0, 0)'
             // position='relative'
             paddingLeft='1.65%'
             marginLeft='75pt'
         />
 
         <Box
-            width='90vw'
+            width='80vw'
             marginTop='25%'
+            paddingTop='7%'
         >
 
         <Box
-        display='flex'
-        flexDirection='column'
-        alignItems='center'
-        paddingTop='10%'
-        paddingRight='15%'
-        width='65vw'
-        height='150vh'
+            display='flex'
+            flexDirection='column'
+            alignItems='center'
+            width='50vw'
+            bg='white'
+            padding='1%'
+            height='82.5vh'
+        >
+
+        <Box
+            // width='65vw'
+            bg='#B07E09'
+            width='63vw'
+            padding='2%'
+            marginTop='1%'
+            borderRadius='5'
+            ring='1.5pt'
+            ringColor='white'
+            ringOffset='2pt'
+            ringOffsetColor='#3b413c'
         >
         <Text
             color='white'
-            fontFamily='Merienda'
+            fontFamily='Poiret One'
             fontSize='20pt'
             lineHeight='27pt'
-            letterSpacing='tight'
+            letterSpacing='normal'
             textAlign='justify'
+            as='b'
         >
             This reading will consist of a traditional three card
             spread. Considered by both professional and amatuer readers
@@ -214,19 +239,20 @@ export default function Index() {
 
             <Grid
             color='white'
-            fontFamily='Aboreto'
-            fontSize='15pt'
-            lineHeight='27pt'
+            fontFamily='Poiret One'
+            fontSize='18pt'
+            // lineHeight='27pt'
             textAlign='justify'
             >
                 <br />
-                <GridItem> <ChevronRightIcon /> Past, Present, Future</GridItem>
-                <GridItem> <ChevronRightIcon /> Situation, Action, Outcome</GridItem>
-                <GridItem> <ChevronRightIcon /> You, Relationship, Partner</GridItem>
-                <GridItem>  <ChevronRightIcon />Strengths, Weakness, Advice</GridItem>
-                <GridItem> <ChevronRightIcon /> Solution 1, Solution 2, How to Choose</GridItem>
-                <GridItem> <ChevronRightIcon /> You, Your Path, Your Potential</GridItem>
+                <GridItem> <ChevronRightIcon /><strong> Past, Present, Future </strong></GridItem>
+                <GridItem> <ChevronRightIcon /><strong> Situation, Action, Outcome </strong></GridItem>
+                <GridItem> <ChevronRightIcon /><strong> You, Relationship, Partner </strong></GridItem>
+                <GridItem> <ChevronRightIcon /><strong> Strengths, Weakness, Advice </strong></GridItem>
+                <GridItem> <ChevronRightIcon /><strong> Solution 1, Solution 2, How to Choose </strong></GridItem>
+                <GridItem> <ChevronRightIcon /><strong> You, Your Path, Your Potential </strong></GridItem>
             </Grid>
+            </Box>
             </Box>
             </Box>
 
@@ -246,7 +272,6 @@ export default function Index() {
             width='3.25vw'
             // marginTop='25%'
             // borderRadius='5'
-            boxShadow= '75px 75px 75px rgba(0, 0, 0, 0)'
             // position='relative'
             paddingLeft='1.65%'
             marginLeft='75pt'
