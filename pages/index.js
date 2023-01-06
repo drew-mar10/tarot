@@ -3,7 +3,7 @@ import { useState, useContext, useRef } from "react";
 import Link from "next/link";
 import { Context } from "./Provider";
 import { Router, useRouter } from "next/router";
-import { Box, Text, SimpleGrid, Center, Grid, GridItem, IconButton } from "@chakra-ui/react";
+import { Box, Text, Flex, SimpleGrid, Center, Grid, GridItem, IconButton, useMediaQuery } from "@chakra-ui/react";
 import { ArrowDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useInView, AnimatePresence, motion, MotionConfig } from "framer-motion";
 import CardContent from "../components/CardContent";
@@ -34,7 +34,7 @@ export default function Index() {
     const [input, setInput] = useState('');
     const [data, setData] = useState({ question: "" });
 
-    const router = useRouter();
+    const [isNotSmallScreen] = useMediaQuery("(min-width: 600px");
 
 
     return (
@@ -54,40 +54,45 @@ export default function Index() {
         <SimpleGrid columns={2}>
 
             <Box
-                max-width='50vw'
+                // max-width='50vw'
                 max-height='130vh'
                 bg='white'
-                height='130vh'
+                height={isNotSmallScreen ? '130vh' : '130vh'}
                 width='3.25vw'
-                // marginTop='25%'
-                // borderRadius='5'
-                // position='relative'
-                paddingLeft='1.65%'
-                marginLeft='75pt'
+                paddingLeft={isNotSmallScreen ? '1.65%' : ''}
+                marginLeft={isNotSmallScreen ? '75pt' : '45pt'}
             >
-                {/* <Center /> */}
+                <Flex
+                    direction='column'
+                    justifyContent='center'
+                    alignContent='center'
+                    justifyItems='center'
+                >
                 <Text
                     as='b'
-                    fontSize='110'
+                    fontSize={isNotSmallScreen ? '105' : '85'}
                     color='#B07E09'
                     fontFamily='Aboreto'
                     // marginLeft='5%'
+                    marginTop={isNotSmallScreen ? '' :  '4'}
                     letterSpacing='tight'
-                    paddingTop='1%'
+                    // paddingTop='1%'
                     // boxShadow= '0 75px 50px rgba(0, 0, 0, 0.1)'
                 >
                     Tarot
                 </Text>
+                </Flex>
             </Box>
 
         <Box
             display='flex'
-            flexDirection='row'
+            flexDirection={isNotSmallScreen ? 'row' : 'column'}
             alignItems='flex-end'
-            justifyContent='flex-end'
+            justifyContent={isNotSmallScreen ? 'flex-end' : 'center'}
             // paddingTop='7%'
             width='50vw'
-            paddingBottom='40%'
+            paddingBottom={isNotSmallScreen? '45%' : ''}
+            marginBottom={isNotSmallScreen? '' : '-96'}
             paddingRight='10%'
         >
             <Link
@@ -110,17 +115,12 @@ export default function Index() {
         <SimpleGrid minChildWidth='12px'>
 
         <Box
-            max-width='50vw'
-            max-height='120vh'
-            bg='white'
-            height='120vh'
-            width='3.25vw'
-            // marginTop='25%'
-            // borderRadius='5'
-            // position='relative'
-            paddingLeft='1.65%'
-            marginLeft='75pt'
-            position='relative'
+            max-height='130vh'
+                bg='white'
+                height={isNotSmallScreen ? '130vh' : '130vh'}
+                width='3.25vw'
+                paddingLeft={isNotSmallScreen ? '1.65%' : ''}
+                marginLeft={isNotSmallScreen ? '75pt' : '45pt'}
         />
         <Box
             width='85vw'
@@ -290,6 +290,7 @@ export default function Index() {
         </Section>
 
         </motion.main>
+
     </AnimatePresence>
 
     </>
