@@ -4,19 +4,20 @@ import { Text, Heading, Box, Center, Image, Container } from "@chakra-ui/react";
 
 export function Reading(props){
     return (
-        <Box
-            width= '70vw'
-        >
-            <Container>
+        // <Box
+        //     width= '70vw'
+        // >
+            <Box>
             <Text
-                paddingTop='2%'
+                // paddingTop='2%'
                 color='white'
                 fontWeight='400'
                 fontSize='15pt'
+                textAlign='left'
             >
                 <strong>{props.name} of {props.arcana}</strong>: {props.description}
             </Text>
-            </Container>
-        </Box>
+            </Box>
+        // </Box>
     )
 }

@@ -15,7 +15,6 @@ const CardContent = ({ onClick }) => {
 
     return (
         <>
-
         <Box
             // className="card"
             width='40vw'
@@ -27,47 +26,47 @@ const CardContent = ({ onClick }) => {
             // marginTop='-1%'
             // bg="#B07E09"
         >
-        <Box
-        width='100%'
-        bg='#B07E09'
-        height='33%'
-        borderRadius='5'
-        display='flex'
-        flexDirection='column'
-        alignItems='center'
-        // boxShadow= '0px -5px 75px 100px rgba(0, 0, 0, 0.7)'
-        >
-        <Box
-            display='flex'
-            flexDirection='column'
-            alignItems='center'
-            width='100%'
-            marginTop='1%'
-        >
-            <Input
-                type="text"
-                width='99%'
-                height='8vh'
-                textColor="black"
-                bg='white'
-                // margin='auto'
-                marginTop='2%'
-                marginRight='7%'
-                // borderColor="#3b413c"
+
+            <Box
+                width='100%'
+                bg='#B07E09'
+                height='33%'
                 borderRadius='5'
-                // borderWidth='3'
-                textAlign='center'
-                letterSpacing='wider'
-                placeholder="What is it that you seek to know?"
+                display='flex'
+                flexDirection='column'
                 alignItems='center'
-                value={data.question}
-                onChange={(event) =>
-                    setData({
-                        question: event.target.value,
-                })}
-            />
-        </Box>
-        </Box>
+            >
+                <Box
+                    display='flex'
+                    flexDirection='column'
+                    alignItems='center'
+                    width='100%'
+                    marginTop='1%'
+                >
+                    <Input
+                        type="text"
+                        width='99%'
+                        height='8vh'
+                        textColor="black"
+                        bg='white'
+                        // margin='auto'
+                        marginTop='2%'
+                        marginRight='7%'
+                        // borderColor="#3b413c"
+                        borderRadius='5'
+                        // borderWidth='3'
+                        textAlign='center'
+                        letterSpacing='wider'
+                        placeholder="What is it that you seek to know?"
+                        alignItems='center'
+                        value={data.question}
+                        onChange={(event) =>
+                            setData({
+                                question: event.target.value,
+                        })}
+                    />
+                </Box>
+            </Box>
 
 
         <Box
@@ -118,8 +117,8 @@ const CardContent = ({ onClick }) => {
         </Button> */}
 
     </Box>
-    </Box>
 
+    </Box>
     </>
     )
 }

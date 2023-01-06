@@ -68,19 +68,19 @@ export default function Index() {
                     alignContent='center'
                     justifyItems='center'
                 >
-                <Text
-                    as='b'
-                    fontSize={isNotSmallScreen ? '105' : '85'}
-                    color='#B07E09'
-                    fontFamily='Aboreto'
-                    // marginLeft='5%'
-                    marginTop={isNotSmallScreen ? '' :  '4'}
-                    letterSpacing='tight'
-                    // paddingTop='1%'
-                    // boxShadow= '0 75px 50px rgba(0, 0, 0, 0.1)'
-                >
-                    Tarot
-                </Text>
+                    <Text
+                        as='b'
+                        fontSize={isNotSmallScreen ? '105' : '85'}
+                        color='#B07E09'
+                        fontFamily='Aboreto'
+                        // marginLeft='5%'
+                        marginTop={isNotSmallScreen ? '' :  '4'}
+                        letterSpacing='tight'
+                        // paddingTop='1%'
+                        // boxShadow= '0 75px 50px rgba(0, 0, 0, 0.1)'
+                    >
+                        Tarot
+                    </Text>
                 </Flex>
             </Box>
 
@@ -116,15 +116,15 @@ export default function Index() {
 
         <Box
             max-height='130vh'
-                bg='white'
-                height={isNotSmallScreen ? '130vh' : '130vh'}
-                width='3.25vw'
-                paddingLeft={isNotSmallScreen ? '1.65%' : ''}
-                marginLeft={isNotSmallScreen ? '75pt' : '45pt'}
+            bg='white'
+            height={isNotSmallScreen ? '130vh' : '130vh'}
+            width='3.25vw'
+            paddingLeft={isNotSmallScreen ? '1.65%' : ''}
+            marginLeft={isNotSmallScreen ? '75pt' : '45pt'}
         />
         <Box
-            width='85vw'
-            marginTop='25%'
+            width='75vw'
+            marginTop='55%'
             paddingTop='7%'
         >
         <Box
@@ -134,7 +134,8 @@ export default function Index() {
             width='50vw'
             bg='white'
             padding='1%'
-            height='41.25vh'
+            height='38.5vh'
+            borderRadius='5'
         >
         <Box
             bg='#B07E09'
@@ -142,31 +143,31 @@ export default function Index() {
             padding='2%'
             marginTop='1%'
             borderRadius='5'
-            ring='1.5pt'
+            ring='3.5pt'
             ringColor='white'
             ringOffset='2pt'
             ringOffsetColor='#3b413c'
         >
-        <Text
-            color='white'
-            fontFamily='Poiret One'
-            fontSize='25pt'
-            lineHeight='30pt'
-            // letterSpacing='tight'
-            textAlign='justify'
-            as='b'
-        >
-            Tarot is a form of divination where tarot
-            cards and their associated meanings are used
-            to gain insight into the past, present, or future.
-            A traditional tarot deck consists of
-            78 cards, divided into two primary groups:
-            <br />
-            Major Arcana and Minor Arcana.
-        </Text>
+            <Text
+                color='white'
+                fontFamily='Poiret One'
+                fontSize='25pt'
+                lineHeight='30pt'
+                // letterSpacing='tight'
+                textAlign='justify'
+                as='b'
+            >
+                Tarot is a form of divination where tarot
+                cards and their associated meanings are used
+                to gain insight into the past, present, or future.
+                A traditional tarot deck consists of
+                78 cards, divided into two primary groups:
+                <br />
+                Major Arcana and Minor Arcana.
+            </Text>
         </Box>
-            </Box>
-            </Box>
+        </Box>
+        </Box>
         </SimpleGrid>
         </Section>
 
@@ -189,7 +190,7 @@ export default function Index() {
         />
 
         <Box
-            width='80vw'
+            width='75vw'
             marginTop='25%'
             paddingTop='7%'
         >
@@ -202,6 +203,7 @@ export default function Index() {
             bg='white'
             padding='1%'
             height='82.5vh'
+            borderRadius='5'
         >
 
         <Box

@@ -4,7 +4,7 @@ import { useEffect, useState, useContext } from "react";
 import { Router, useRouter } from "next/router";
 import { motion, useAnimationControls, AnimatePresence } from "framer-motion";
 import Card from "../components/Card";
-import { Container, Text, Stack, Box, SimpleGrid, Button, GridItem, Grid } from "@chakra-ui/react";
+import { Container, Text, Stack, Box, SimpleGrid, Button } from "@chakra-ui/react";
 import { Reading } from "../components/Reading";
 
 
@@ -24,7 +24,6 @@ export default function TarotCards(props) {
 
     return(
     <>
-
         <Box
         width='100vw'
         sx={{
@@ -50,49 +49,36 @@ export default function TarotCards(props) {
     >
 
         <Container
-            paddingTop='40px'
+            paddingTop='20px'
             display='flex'
             flexDirection='column'
             justifyContent='center'
             alignItems='center'
             width='80vw'
+            // borderWidth='2pt'
         >
 
-        <Box
-            // marginTop='7px'
-            width='75vw'
-            display='flex'
-            flexDirection='column'
-            justifyContent='center'
-            alignItems='center'
-            borderRadius='7'
-            padding='2%'
-        >
-        <Box
-            bg='white'
-            maxWidth='100vw'
-            maxHeight='10vh'
-            height='3.25vh'
-            width='100vw'
-            paddingBottom='3%'
-            display='flex'
-            flexDirection='column'
-            justifyContent='center'
-            // alignContent='center'
-            alignItems='center'
-        >
-            <Text
-                fontSize='45pt'
-                textColor='#B07E09'
-                letterSpacing='tight'
-                textAlign='justify'
-                fontFamily='Merienda'
-                paddingTop='6%'
+            <Box
+                // marginTop='7px'
+                width='75vw'
+                display='flex'
+                flexDirection='column'
+                justifyContent='center'
+                alignItems='center'
+                borderRadius='7'
+                padding='2%'
             >
-                question: {question}
-            </Text>
-        </Box>
-        </Box>
+                <Text
+                    fontSize='45pt'
+                    textColor='#B07E09'
+                    letterSpacing='tight'
+                    textAlign='justify'
+                    fontFamily='Merienda'
+                    paddingTop='6%'
+                >
+                    {question}
+                </Text>
+            </Box>
 
 
         <Stack spacing='100vw'direction='column'>
@@ -104,32 +90,32 @@ export default function TarotCards(props) {
             marginTop='4%'
         >
 
-                <Text
-                    color='white'
-                    textDecoration='underline'
-                    fontSize='15pt'
-                    textAlign='center'
-                >
-                    {tarots.id} <br /> {tarots.id}
-                </Text>
+            <Text
+                color='white'
+                textDecoration='underline'
+                fontSize='15pt'
+                textAlign='center'
+            >
+                {tarots.id} <br /> {tarots.id}
+            </Text>
 
-                <Text
-                    color='white'
-                    textDecoration='underline'
-                    fontSize='15pt'
-                    textAlign='center'
-                >
-                    {tarots.id} {tarots.id}
-                </Text>
+            <Text
+                color='white'
+                textDecoration='underline'
+                fontSize='15pt'
+                textAlign='center'
+            >
+                {tarots.id} {tarots.id}
+            </Text>
 
-                <Text
-                    color='white'
-                    textDecoration='underline'
-                    fontSize='15pt'
-                    textAlign='center'
-                >
-                    {tarots.id} {tarots.id}
-                </Text>
+            <Text
+                color='white'
+                textDecoration='underline'
+                fontSize='15pt'
+                textAlign='center'
+            >
+                {tarots.id} {tarots.id}
+            </Text>
 
 
             {tarots.slice(0, 3).map((tarot, id) => {
@@ -139,14 +125,14 @@ export default function TarotCards(props) {
                         display='flex'
                         flexDirection='column'
                         alignItems='center'
-                        borderWidth='1pt'
+                        // borderWidth='1pt'
                         width='18vw'
                         height='40vh'
                         paddingTop='1.5'
                         padding= '1.5'
                         // bg='white'
                         marginLeft='18%'
-                        borderRadius='5'
+                        borderRadius='2'
                         bg='black'
                         // boxShadow= '30px 75px 100px 100px rgba(0, 0, 0, 0.5)'
                     >
@@ -188,14 +174,14 @@ export default function TarotCards(props) {
 
             <Box
                 bg="#B07E09"
+                width='65vw'
                 ring='5pt'
                 ringColor='white'
                 ringOffset='3pt'
                 ringOffsetColor='#3b413c'
                 borderRadius='7'
-                padding='3%'
-                marginTop='15%'
-                paddingBottom='7%'
+                padding='8'
+                marginTop='25%'
             >
             {tarots.slice(0, 3).map((tarot, i) => {
                 return (
